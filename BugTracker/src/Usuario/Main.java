@@ -46,6 +46,7 @@ public class Main extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Panel de Usuario");
         setSize(new java.awt.Dimension(1000, 615));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -71,7 +72,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(34, 34, 34))
         );
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans Mono", 0, 24)); // NOI18N
         jLabel2.setText("Bienvenido");
 
         jLabel3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N

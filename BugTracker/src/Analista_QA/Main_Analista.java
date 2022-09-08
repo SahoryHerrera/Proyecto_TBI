@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Administrador;
+package Analista_QA;
+
+import Administrador.*;
 
 /**
  *
  * @author ZOILA MARINA HERRERA
  */
-public class Main_Admi extends javax.swing.JFrame {
+public class Main_Analista extends javax.swing.JFrame {
 
     /**
      * Creates new form Main_Admi
      */
-    public Main_Admi() {
+    public Main_Analista() {
         initComponents();
     }
 
@@ -38,7 +40,6 @@ public class Main_Admi extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
         btn_comentarios_admin = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,8 +48,8 @@ public class Main_Admi extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/admin_pequeño.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 30, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tl (1).png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/MARCO_ADMIN.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
@@ -56,17 +57,17 @@ public class Main_Admi extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(9, 95, 153));
         jLabel2.setFont(new java.awt.Font("Corbel", 0, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(9, 95, 153));
-        jLabel2.setText("Administrador");
+        jLabel2.setText("Analista");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, -1, 40));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(9, 95, 153));
-        jLabel4.setText("de desarrollo de software");
+        jLabel4.setText("de quality assurance");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 340, 40));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Administrar cuenta");
+        jLabel5.setText("Informacion");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 160, 20));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/START.png"))); // NOI18N
@@ -78,17 +79,13 @@ public class Main_Admi extends javax.swing.JFrame {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu ultra pequeño.png"))); // NOI18N
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText(" Administrar");
+        jMenu2.setText("Generar Bug");
         jMenu2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("  Estadisticas");
+        jMenu3.setText("  Información");
         jMenu3.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("  Asignaciones");
-        jMenu4.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        jMenuBar1.add(jMenu4);
 
         btn_comentarios_admin.setText("  Comentarios");
         btn_comentarios_admin.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
@@ -127,20 +124,21 @@ public class Main_Admi extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main_Admi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_Analista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main_Admi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_Analista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main_Admi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_Analista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main_Admi.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main_Analista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main_Admi().setVisible(true);
+                new Main_Analista().setVisible(true);
             }
         });
     }
@@ -156,7 +154,6 @@ public class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

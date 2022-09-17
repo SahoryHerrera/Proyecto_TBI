@@ -5,7 +5,16 @@
  */
 package Usuario;
 
+import Administrador.Main_Admi;
+import Administrador.conexion1;
+import Analista_QA.Main_Analista;
+import Desarrollador.Main_Desarrollador;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,12 +47,12 @@ public class Main extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        correo = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         btn_aceptar_LG = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Panel de Usuario");
@@ -85,7 +94,7 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jLabel5.setText("Contraseña");
 
-        jTextField2.setBorder(null);
+        correo.setBorder(null);
 
         btn_aceptar_LG.setText("Aceptar");
         btn_aceptar_LG.addActionListener(new java.awt.event.ActionListener() {
@@ -95,8 +104,13 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jPasswordField1.setBorder(null);
+        pass.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,8 +144,8 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel4)
                                     .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
-                                    .addComponent(jTextField2)
+                                    .addComponent(pass, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                                    .addComponent(correo)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addContainerGap(20, Short.MAX_VALUE))))
         );
@@ -148,13 +162,13 @@ public class Main extends javax.swing.JFrame {
                 .addGap(52, 52, 52)
                 .addComponent(jLabel4)
                 .addGap(25, 25, 25)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -183,9 +197,106 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_aceptar_LGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptar_LGActionPerformed
-        // TODO add your handling code here:
-       btn_aceptar_LG.setBackground(Color.blue);
+        ResultSet res;
+        ResultSet res1;
+        ResultSet res2;
+        res = Conexiones.Conexion.Consulta("select U.u_login from Usuario U");
+        res1 = Conexiones.Conexion.Consulta("select U.u_password from Usuario U");
+        res2 = Conexiones.Conexion.Consulta("select U.rol from Usuario U");
+        String rol = "";
+        String admin = "administrador", desarrollador = "desarrollador", analista = "analista";
+        ArrayList v = new ArrayList();
+        ArrayList v1 = new ArrayList();
+        ArrayList v2 = new ArrayList();
+        String msjlogin = "";
+        String msjpass = "";
+        String msjgen = "";
+        int a = 0;
+        int b = 0;
+        try {
+            while (res.next()) {
+                
+                v.add(res.getString(1));
+                
+            }
+            while (res1.next()) {
+                
+                v1.add(res1.getString(1));
+                
+            }
+            while (res2.next()) {
+                
+                v2.add(res2.getString(1));
+                
+            }
+            int c = 0;
+            for (int i = 0; i < v.size(); i++) {
+                String pw = pass.getText();
+                String login = correo.getText();
+                if (login.equals(v.get(i)) && pw.equals("SHA-256")) {
+                    c = 1;
+                    a = i;
+                } else {
+                    if ((!login.equals(v.get(i))) && (pw.equals("SHA-256"))) {
+                        msjlogin = "Su correo es incorrecto";
+                        b = 1;
+                    } else if ((login.equals(v.get(i))) && (!pw.equals("SHA-256"))) {
+                        msjpass = "Su contraseña es incorrecta";
+                        b = 2;
+                    } else if (!(login.equals(v.get(i))) || (pw.equals("SHA-256"))) {
+                        msjgen = "Correo y contraseña incorrectas";
+                        b = 0;
+                    }
+                }
+            }
+            
+            System.out.println(rol);
+            if (c == 1) {
+                rol = v2.get(a) + "";
+                JOptionPane.showMessageDialog(null, "Bienvenido " + rol);
+                pass.setText("");
+                correo.setText("");
+                if (rol.equals(admin)) {
+                    Main_Admi ma = new Main_Admi();
+                    ma.setVisible(false);
+                    ma.pack();
+                    ma.setLocationRelativeTo(this);
+                    ma.setVisible(true);
+                    this.dispose();
+                } else if (rol.equals(desarrollador)) {
+                    Main_Desarrollador md = new Main_Desarrollador();
+                    md.setVisible(false);
+                    md.pack();
+                    md.setLocationRelativeTo(this);
+                    md.setVisible(true);
+                    this.dispose();
+                } else if (rol.equals(analista)) {
+                    Main_Analista ma = new Main_Analista();
+                    ma.setVisible(false);
+                    ma.pack();
+                    ma.setLocationRelativeTo(this);
+                    ma.setVisible(true);
+                    this.dispose();
+                }
+            } else {
+                if (b == 1) {
+                    JOptionPane.showMessageDialog(null, msjlogin);
+                } else if (b == 2) {
+                    JOptionPane.showMessageDialog(null, msjpass);
+                } else if (b == 0) {
+                    JOptionPane.showMessageDialog(null, msjgen);
+                }
+            }
+        } catch (SQLException e) {
+        }
+        
+        btn_aceptar_LG.setBackground(Color.blue);
+
     }//GEN-LAST:event_btn_aceptar_LGActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +335,7 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptar_LG;
+    private javax.swing.JTextField correo;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -232,11 +344,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField pass;
     // End of variables declaration//GEN-END:variables
 }

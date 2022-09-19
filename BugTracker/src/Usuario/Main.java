@@ -200,39 +200,50 @@ public class Main extends javax.swing.JFrame {
         ResultSet res;
         ResultSet res1;
         ResultSet res2;
+        ResultSet res3;
         res = Conexiones.Conexion.Consulta("select U.u_login from Usuario U");
         res1 = Conexiones.Conexion.Consulta("select U.u_password from Usuario U");
         res2 = Conexiones.Conexion.Consulta("select U.rol from Usuario U");
+        res3 = Conexiones.Conexion.Consulta("select login_usuario from Desarrollador");
         String rol = "";
         String admin = "administrador", desarrollador = "desarrollador", analista = "analista";
         ArrayList v = new ArrayList();
         ArrayList v1 = new ArrayList();
         ArrayList v2 = new ArrayList();
+        ArrayList v3 = new ArrayList();
         String msjlogin = "";
         String msjpass = "";
         String msjgen = "";
+        String enviar = "";
         int a = 0;
         int b = 0;
         try {
             while (res.next()) {
-                
+
                 v.add(res.getString(1));
-                
+
             }
             while (res1.next()) {
-                
+
                 v1.add(res1.getString(1));
-                
+
             }
             while (res2.next()) {
-                
+
                 v2.add(res2.getString(1));
-                
+
             }
+            while (res3.next()) {
+
+                v3.add(res3.getString(1));
+
+            }
+            String pw = pass.getText();
+            String login = correo.getText();
+            enviar = login;
             int c = 0;
             for (int i = 0; i < v.size(); i++) {
-                String pw = pass.getText();
-                String login = correo.getText();
+
                 if (login.equals(v.get(i)) && pw.equals("SHA-256")) {
                     c = 1;
                     a = i;
@@ -249,10 +260,11 @@ public class Main extends javax.swing.JFrame {
                     }
                 }
             }
-            
+
             System.out.println(rol);
             if (c == 1) {
                 rol = v2.get(a) + "";
+
                 JOptionPane.showMessageDialog(null, "Bienvenido " + rol);
                 pass.setText("");
                 correo.setText("");
@@ -270,6 +282,10 @@ public class Main extends javax.swing.JFrame {
                     md.setLocationRelativeTo(this);
                     md.setVisible(true);
                     this.dispose();
+                    if (enviar.equals(v3.get(a))) {
+                        Main_Desarrollador mdd = new Main_Desarrollador();
+                        mdd.logEmail.setText(v3.get(a) + "");
+                    }
                 } else if (rol.equals(analista)) {
                     Main_Analista ma = new Main_Analista();
                     ma.setVisible(false);
@@ -289,8 +305,9 @@ public class Main extends javax.swing.JFrame {
             }
         } catch (SQLException e) {
         }
-        
+
         btn_aceptar_LG.setBackground(Color.blue);
+
 
     }//GEN-LAST:event_btn_aceptar_LGActionPerformed
 

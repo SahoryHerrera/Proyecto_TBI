@@ -5,6 +5,7 @@
  */
 package Administrador;
 
+import enviodecorreos.Correo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.sql.Connection;
@@ -42,6 +43,7 @@ public final class Main_Admi extends javax.swing.JFrame {
         txtid.setVisible(false);
         txtid1.setVisible(false);
         txtid2.setVisible(false);
+        txtid3.setVisible(false);
     }
 
     /**
@@ -113,6 +115,8 @@ public final class Main_Admi extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         CodProyecto = new javax.swing.JComboBox<>();
         jSeparator13 = new javax.swing.JSeparator();
+        lista_correos1 = new javax.swing.JComboBox<>();
+        jLabel30 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         btn_eliminar3 = new javax.swing.JButton();
         btn_listar3 = new javax.swing.JButton();
@@ -137,17 +141,27 @@ public final class Main_Admi extends javax.swing.JFrame {
         btn_atras3 = new javax.swing.JButton();
         btn_guardar2 = new javax.swing.JButton();
         Lista_tecnologias = new javax.swing.JComboBox<>();
-        jd_agregar_lenguajes = new javax.swing.JDialog();
+        jd_comentarios = new javax.swing.JDialog();
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        lenguajes = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
         btn_atras4 = new javax.swing.JButton();
         btn_guardar3 = new javax.swing.JButton();
-        Lista_lenguajes = new javax.swing.JComboBox<>();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        CodBug = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        Comentario = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel28 = new javax.swing.JLabel();
+        EstadoBug = new javax.swing.JComboBox<>();
+        jSeparator5 = new javax.swing.JSeparator();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        TBLBUG = new javax.swing.JTable();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        btn_listar4 = new javax.swing.JButton();
+        txtid3 = new javax.swing.JTextField();
         jd_Graficos = new javax.swing.JDialog();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
@@ -155,6 +169,17 @@ public final class Main_Admi extends javax.swing.JFrame {
         btn_atras5 = new javax.swing.JButton();
         btn_graficar = new javax.swing.JButton();
         jpanel_grafico = new javax.swing.JPanel();
+        jd_agregar_lenguajes = new javax.swing.JDialog();
+        jPanel22 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        lenguajes = new javax.swing.JTextField();
+        btn_atras6 = new javax.swing.JButton();
+        btn_guardar4 = new javax.swing.JButton();
+        Lista_lenguajes = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -172,6 +197,7 @@ public final class Main_Admi extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         btn_comentarios_admin = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jd_crud_ps.setTitle("Crud Proyecto de Software");
 
@@ -760,18 +786,28 @@ public final class Main_Admi extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jLabel23.setText("Codigo de proyecto:");
 
+        jLabel30.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jLabel30.setText("Email:");
+
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel23)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator13)
-                    .addComponent(CodProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lista_correos1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel17Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSeparator13)
+                            .addComponent(CodProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -782,7 +818,11 @@ public final class Main_Admi extends javax.swing.JFrame {
                     .addComponent(CodProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator13, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lista_correos1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -1067,39 +1107,32 @@ public final class Main_Admi extends javax.swing.JFrame {
             .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jd_agregar_lenguajes.setTitle("Agregar mas Lenguajes");
+        jd_comentarios.setTitle("Agregar mas Lenguajes");
 
         jPanel15.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel16.setBackground(new java.awt.Color(3, 146, 250));
 
-        jLabel25.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("Lenguajes de programación");
+        jLabel35.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setText("Comentarios de Bugs");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel25)
-                .addContainerGap(136, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(127, Short.MAX_VALUE)
+                .addComponent(jLabel35)
+                .addGap(108, 108, 108))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-
-        jLabel26.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel26.setText("Agrege las tecnologías que maneja:");
-
-        jLabel27.setText("Codigo de Desarrollador:");
-
-        jLabel28.setText("Lenguaje:");
 
         btn_atras4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda.png"))); // NOI18N
         btn_atras4.setBorder(null);
@@ -1117,61 +1150,186 @@ public final class Main_Admi extends javax.swing.JFrame {
             }
         });
 
+        jPanel24.setBackground(new java.awt.Color(232, 232, 254));
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel24.setForeground(new java.awt.Color(153, 153, 153));
+
+        jLabel26.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jLabel26.setText("Bug:");
+
+        jLabel27.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jLabel27.setText("Comentario:");
+
+        Comentario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComentarioActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jLabel28.setText("Estado:");
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator4)
+                    .addComponent(Comentario)
+                    .addComponent(CodBug, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(EstadoBug, 0, 273, Short.MAX_VALUE)
+                    .addComponent(jSeparator5))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel24Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(CodBug, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(EstadoBug, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel27)
+                        .addGap(189, 189, 189))
+                    .addGroup(jPanel24Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+
+        TBLBUG.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Descripcion", "Nivel de urgencia", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TBLBUG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TBLBUGMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(TBLBUG);
+
+        jPanel25.setBackground(new java.awt.Color(3, 146, 250));
+
+        jLabel25.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Tabla de Bugs");
+
+        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
+        jPanel25.setLayout(jPanel25Layout);
+        jPanel25Layout.setHorizontalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel25Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addGap(225, 225, 225))
+        );
+        jPanel25Layout.setVerticalGroup(
+            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel25Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btn_listar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/hecho.png"))); // NOI18N
+        btn_listar4.setBorder(null);
+        btn_listar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_listar4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel27))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lenguajes, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(Lista_lenguajes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(btn_atras4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_guardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(btn_atras4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_guardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_listar4, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)))
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(407, 407, 407)
+                .addComponent(txtid3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel15Layout.createSequentialGroup()
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel26)
-                .addGap(25, 25, 25)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(Lista_lenguajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(lenguajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_guardar3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_atras4, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtid3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_guardar3, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                    .addComponent(btn_atras4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_listar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jd_agregar_lenguajesLayout = new javax.swing.GroupLayout(jd_agregar_lenguajes.getContentPane());
-        jd_agregar_lenguajes.getContentPane().setLayout(jd_agregar_lenguajesLayout);
-        jd_agregar_lenguajesLayout.setHorizontalGroup(
-            jd_agregar_lenguajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jd_comentariosLayout = new javax.swing.GroupLayout(jd_comentarios.getContentPane());
+        jd_comentarios.getContentPane().setLayout(jd_comentariosLayout);
+        jd_comentariosLayout.setHorizontalGroup(
+            jd_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jd_agregar_lenguajesLayout.setVerticalGroup(
-            jd_agregar_lenguajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jd_comentariosLayout.setVerticalGroup(
+            jd_comentariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jd_Graficos.setTitle("Crud Proyecto de Software");
@@ -1210,7 +1368,6 @@ public final class Main_Admi extends javax.swing.JFrame {
         });
 
         btn_graficar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/recargar.png"))); // NOI18N
-        btn_graficar.setActionCommand("");
         btn_graficar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_graficarActionPerformed(evt);
@@ -1270,6 +1427,113 @@ public final class Main_Admi extends javax.swing.JFrame {
         jd_GraficosLayout.setVerticalGroup(
             jd_GraficosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jd_agregar_lenguajes.setTitle("Agregar mas Lenguajes");
+
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel23.setBackground(new java.awt.Color(3, 146, 250));
+
+        jLabel31.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Lenguajes de programación");
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabel31)
+                .addContainerGap(136, Short.MAX_VALUE))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel32.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel32.setText("Agrege las tecnologías que maneja:");
+
+        jLabel33.setText("Codigo de Desarrollador:");
+
+        jLabel34.setText("Lenguaje:");
+
+        btn_atras6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/flecha-izquierda.png"))); // NOI18N
+        btn_atras6.setBorder(null);
+        btn_atras6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_atras6ActionPerformed(evt);
+            }
+        });
+
+        btn_guardar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
+        btn_guardar4.setBorder(null);
+        btn_guardar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardar4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel33))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lenguajes, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                            .addComponent(Lista_lenguajes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addComponent(btn_atras6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_guardar4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel32)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(Lista_lenguajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(lenguajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_guardar4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_atras6, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jd_agregar_lenguajesLayout = new javax.swing.GroupLayout(jd_agregar_lenguajes.getContentPane());
+        jd_agregar_lenguajes.getContentPane().setLayout(jd_agregar_lenguajesLayout);
+        jd_agregar_lenguajesLayout.setHorizontalGroup(
+            jd_agregar_lenguajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_agregar_lenguajesLayout.setVerticalGroup(
+            jd_agregar_lenguajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1357,6 +1621,15 @@ public final class Main_Admi extends javax.swing.JFrame {
 
         btn_comentarios_admin.setText("  Comentarios");
         btn_comentarios_admin.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+
+        jMenuItem5.setText("Agregar comentario");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        btn_comentarios_admin.add(jMenuItem5);
+
         jMenuBar1.add(btn_comentarios_admin);
 
         setJMenuBar(jMenuBar1);
@@ -1521,6 +1794,7 @@ public final class Main_Admi extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.toString());
         }
         CodProyecto.setSelectedItem(1);
+        correoEnviar();
     }//GEN-LAST:event_btn_eliminar3ActionPerformed
 
     private void btn_listar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar3ActionPerformed
@@ -1624,7 +1898,7 @@ public final class Main_Admi extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void btn_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atrasActionPerformed
-        jd_crud_desarrollador.dispose();
+        jd_crud_ps.dispose();
         this.setVisible(true);
         txt_NombrePS.setText("");
         FechaInicial.setDate(null);
@@ -1636,8 +1910,8 @@ public final class Main_Admi extends javax.swing.JFrame {
         String nombreProyecto = txt_NombrePS.getText();
         DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
         String fechaInicio = dateFormat.format(FechaInicial.getDate());
-        DateFormat dateFormat1 = new SimpleDateFormat("dd/mm/yyyy");
-        String fechaFinal = dateFormat1.format(fechaFin.getDate());
+//        DateFormat dateFormat1 = new SimpleDateFormat("dd/mm/yyyy");
+//        String fechaFinal = dateFormat1.format(fechaFin.getDate());
         ResultSet res;
         res = Conexiones.Conexion.Consulta("select codigo_proyecto from Proyecto_Software");
 
@@ -1660,12 +1934,11 @@ public final class Main_Admi extends javax.swing.JFrame {
 
         try {
             Connection con = conexion1.getConexion();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Proyecto_Software(codigo_proyecto, nombre_proyecto, fecha_inicio, fecha_fin) VALUES (?,?,?,?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO Proyecto_Software(codigo_proyecto, nombre_proyecto, fecha_inicio) VALUES (?,?,?)");
             //PreparedStatement ps = con.prepareStatement("INSERT INTO Proyecto_software(Cod_proyecto, Nombre_proyecto, id_desarollador) VALUES (?,?,?,?,?)");
             ps.setInt(1, codigo);
             ps.setString(2, nombreProyecto);
             ps.setString(3, fechaInicio);
-            ps.setString(4, fechaFinal);
 
             //     ps.setInt(5, equipoDS);
             ps.executeUpdate();
@@ -1856,7 +2129,18 @@ public final class Main_Admi extends javax.swing.JFrame {
         }
         txt_NombrePS.setText("");
     }//GEN-LAST:event_btn_modificar1ActionPerformed
+    void correoEnviar() {
+        String origen = "addminnbddsql@gmail.com";
+        String destino = (String) lista_correos1.getSelectedItem();
+        String asunto = "Bug asignado";
+        String txt = "Se le ha asignado un nuevo bug, por favor revisar en su aplicacion \n"
+                + "Saludos \n"
+                + "Atte: Administración";
+        String contra16Digitos = "udjzzlzktrilofee";
 
+        Correo c = new Correo(origen, destino, asunto, txt, contra16Digitos);
+        c.envioDeCorreos();
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         jd_agregar_tecnologias.setVisible(true);
         jd_agregar_tecnologias.pack();
@@ -1882,7 +2166,7 @@ public final class Main_Admi extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btn_atras3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atras3ActionPerformed
-        jd_crud_desarrollador.dispose();
+        jd_agregar_tecnologias.dispose();
         jd_crud_desarrollador.setVisible(true);
         Lista_tecnologias.removeAllItems();
     }//GEN-LAST:event_btn_atras3ActionPerformed
@@ -1913,6 +2197,7 @@ public final class Main_Admi extends javax.swing.JFrame {
         jd_agregar_lenguajes.setLocationRelativeTo(this);
         jd_agregar_lenguajes.setVisible(true);
         jd_crud_desarrollador.dispose();
+
         ResultSet res;
         res = Conexiones.Conexion.Consulta("select codigo_desarrollador from Desarrollador");
 
@@ -1932,27 +2217,33 @@ public final class Main_Admi extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_atras4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atras4ActionPerformed
-        jd_agregar_lenguajes.dispose();
-        jd_crud_desarrollador.setVisible(true);
+        jd_comentarios.dispose();
+        this.setVisible(true);
         Lista_lenguajes.removeAllItems();
+
     }//GEN-LAST:event_btn_atras4ActionPerformed
 
     private void btn_guardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar3ActionPerformed
-        String lenguaje = lenguajes.getText();
-        int codigosDesarrolladores = Integer.parseInt((String) Lista_lenguajes.getSelectedItem());
-        try {
-            Connection con = conexion1.getConexion();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO Lenguajes_Desarrollador(codigo_desarrollador, lenguajes) VALUES (?,?)");
-            ps.setInt(1, codigosDesarrolladores);
-            ps.setString(2, lenguaje);
-            ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Registro guardado exitosamente");
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-            System.out.println(e.toString());
+        String bug = (String) CodBug.getSelectedItem();
+        String estado = (String) EstadoBug.getSelectedItem();
+        String coment = Comentario.getText();
+        if (estado.equals("finalizado")) {
+            JOptionPane.showMessageDialog(null, "El estado debe de ser (nuevo), (asignado), por favor intente de nuevo");
+        } else {
+            try {
+                Connection con = conexion1.getConexion();
+                PreparedStatement ps = con.prepareStatement("INSERT INTO Comentarios_Bug(codigo_bug, comentarios) VALUES (?,?)");
+                ps.setString(1, bug);
+                ps.setString(2, coment);
+                ps.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Comentario guardado exitosamente");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.toString());
+                System.out.println(e.toString());
+            }
+            codigoGenerado2();
+            Comentario.setText("");
         }
-        codigoGenerado2();
-        lenguajes.setText("");
     }//GEN-LAST:event_btn_guardar3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -2008,6 +2299,24 @@ public final class Main_Admi extends javax.swing.JFrame {
             } catch (SQLException e) {
             }
 
+        }
+        {
+            ResultSet res;
+            res = Conexiones.Conexion.Consulta("select u_login from Usuario");
+
+            ArrayList<String> v = new ArrayList();
+            try {
+                while (res.next()) {
+
+                    v.add(res.getString(1));
+
+                }
+            } catch (SQLException e) {
+            }
+            for (int i = 0; i < v.size(); i++) {
+                String num = v.get(i) + "";
+                lista_correos1.addItem(num);
+            }
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
@@ -2135,7 +2444,6 @@ public final class Main_Admi extends javax.swing.JFrame {
 
         pack();
         repaint();
-        
 
 
     }//GEN-LAST:event_btn_graficarActionPerformed
@@ -2147,6 +2455,106 @@ public final class Main_Admi extends javax.swing.JFrame {
         jd_Graficos.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void btn_atras6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atras6ActionPerformed
+        jd_agregar_lenguajes.dispose();
+        jd_crud_desarrollador.setVisible(true);
+        Lista_lenguajes.removeAllItems();
+    }//GEN-LAST:event_btn_atras6ActionPerformed
+
+    private void btn_guardar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_guardar4ActionPerformed
+
+    private void ComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComentarioActionPerformed
+
+    private void btn_listar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listar4ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) TBLBUG.getModel();
+        model.setRowCount(0);
+        PreparedStatement ps;
+        ResultSet rs;
+        ResultSetMetaData mt;
+        int colm;
+        try {
+            Connection con = conexion1.getConexion();
+            ps = con.prepareStatement("select codigo, descripcion, nivel_urgencia, estado from bug");
+            rs = ps.executeQuery();
+            mt = rs.getMetaData();
+            colm = mt.getColumnCount();
+            while (rs.next()) {
+                Object[] fila = new Object[colm];
+                for (int i = 0; i < colm; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                model.addRow(fila);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+    }//GEN-LAST:event_btn_listar4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        jd_comentarios.pack();
+        jd_comentarios.setLocationRelativeTo(this);
+        jd_comentarios.setVisible(true);
+        this.dispose();
+        {
+            ResultSet res;
+            res = Conexiones.Conexion.Consulta("select codigo from bug");
+
+            ArrayList<String> v = new ArrayList();
+            try {
+                while (res.next()) {
+
+                    v.add(res.getString(1));
+
+                }
+            } catch (SQLException e) {
+            }
+            for (int i = 0; i < v.size(); i++) {
+                String num = v.get(i) + "";
+                CodBug.addItem(num);
+            }
+        }
+        {
+            ResultSet res;
+            res = Conexiones.Conexion.Consulta("select estado from bug");
+
+            ArrayList<String> v = new ArrayList();
+            try {
+                while (res.next()) {
+
+                    v.add(res.getString(1));
+
+                }
+            } catch (SQLException e) {
+            }
+            for (int i = 0; i < v.size(); i++) {
+                String num = v.get(i) + "";
+                EstadoBug.addItem(num);
+            }
+        }
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void TBLBUGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TBLBUGMouseClicked
+        try {
+            int fila = TBLBUG.getSelectedRow();
+            int id = Integer.parseInt(TBLBUG.getValueAt(fila, 0).toString());
+            Connection con = conexion1.getConexion();
+            PreparedStatement ps = con.prepareStatement("select codigo, descripcion, nivel_urgencia, estado from bug Where codigo=?");
+            ResultSet rs;
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                txtid2.setText(id + "");
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_TBLBUGMouseClicked
     public void codigoGenerado() {
         ResultSet res;
         res = Conexiones.Conexion.Consulta("select codigo_proyecto from Proyecto_Software");
@@ -2217,12 +2625,16 @@ public final class Main_Admi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CodBug;
     private javax.swing.JComboBox<String> CodProyecto;
+    private javax.swing.JTextField Comentario;
+    private javax.swing.JComboBox<String> EstadoBug;
     private com.toedter.calendar.JDateChooser FechaInicial;
     private javax.swing.JComboBox<String> Lista_lenguajes;
     private javax.swing.JComboBox<String> Lista_tecnologias;
     private javax.swing.JTable TBL;
     private javax.swing.JTable TBL2;
+    private javax.swing.JTable TBLBUG;
     private javax.swing.JTable TBLDR;
     private javax.swing.JTable TBLPS;
     private javax.swing.JButton btn_atras;
@@ -2231,6 +2643,7 @@ public final class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JButton btn_atras3;
     private javax.swing.JButton btn_atras4;
     private javax.swing.JButton btn_atras5;
+    private javax.swing.JButton btn_atras6;
     private javax.swing.JMenu btn_comentarios_admin;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_eliminar1;
@@ -2240,9 +2653,11 @@ public final class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JButton btn_guardar1;
     private javax.swing.JButton btn_guardar2;
     private javax.swing.JButton btn_guardar3;
+    private javax.swing.JButton btn_guardar4;
     private javax.swing.JButton btn_listar;
     private javax.swing.JButton btn_listar1;
     private javax.swing.JButton btn_listar3;
+    private javax.swing.JButton btn_listar4;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_modificar1;
     private javax.swing.JLabel code;
@@ -2273,6 +2688,12 @@ public final class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2288,6 +2709,7 @@ public final class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2302,6 +2724,10 @@ public final class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2315,27 +2741,33 @@ public final class Main_Admi extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JDialog jd_Graficos;
     private javax.swing.JDialog jd_agregar_lenguajes;
     private javax.swing.JDialog jd_agregar_tecnologias;
+    private javax.swing.JDialog jd_comentarios;
     private javax.swing.JDialog jd_crud_Asignar;
     private javax.swing.JDialog jd_crud_desarrollador;
     private javax.swing.JDialog jd_crud_ps;
     private javax.swing.JPanel jpanel_grafico;
     private javax.swing.JTextField lenguajes;
     private javax.swing.JComboBox<String> lista_correos;
+    private javax.swing.JComboBox<String> lista_correos1;
     private javax.swing.JTextField nombreDes;
     private javax.swing.JTextField tech;
     private javax.swing.JTextField txt_NombrePS;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtid1;
     private javax.swing.JTextField txtid2;
+    private javax.swing.JTextField txtid3;
     // End of variables declaration//GEN-END:variables
 
 }
